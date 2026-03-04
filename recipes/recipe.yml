@@ -49,9 +49,7 @@ modules:
         - powertop
         - podman-docker
         - fastfetch
-        - cosmic-files
-        - cosmic-edit
-        - cosmic-screenshot
+        # - cosmic-screenshot
 
     remove:
       packages:
