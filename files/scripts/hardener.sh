@@ -50,6 +50,17 @@ echo "YESCRYPT_COST_FACTOR 7" >> /etc/login.defs
 echo "deny = 50" >> /etc/security/faillock.conf
 echo "unlock_time = 86400" >> /etc/security/faillock.conf
 
+# --- 7. Network
+cat <<EOF > /etc/sysctl.d/60-network-hardening.conf
+# Ignore ICMP redirects and 'Source Routed' packets (these are almost always malicious)
+net.ipv4.conf.all.accept_redirects = 0
+net.ipv6.conf.all.accept_redirects = 0
+net.ipv4.conf.default.accept_redirects = 0
+net.ipv4.conf.all.send_redirects = 0
+net.ipv4.conf.all.accept_source_route = 0
+net.ipv6.conf.all.accept_source_route = 0
+EOF
+
 echo "Hardening complete!"
 
 # --- 7. Configure systemd-resolved for DNS-over-TLS using Cloudflare and Quad9
