@@ -40,7 +40,7 @@ modules:
     repos:
       copr:
         - ublue-os/packages
-        - pop-os/cosmic-epoch
+        - ryanabx/cosmic-epoch
 
     install:
       packages:
