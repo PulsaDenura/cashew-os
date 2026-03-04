@@ -16,12 +16,19 @@ ethernet.cloned-mac-address=random
 EOF
 
 # --- 2. Networking: Network Time Security (NTS) ---
-# Encrypts time synchronization to prevent MITM attacks on your system clock.
+# FIXED: Using 'server' instead of 'pool' for robust NTS enforcement.
 if [ -f /etc/chrony.conf ]; then
-    sed -i 's/^pool.*/pool time.cloudflare.com iburst nts/' /etc/chrony.conf
-    echo "ntsdumpdir /var/lib/chrony" >> /etc/chrony.conf
+    # Comment out existing pools/servers to avoid conflicts
+    sed -i 's/^\(pool\|server\)/# \1/' /etc/chrony.conf
+    mkdir -p /var/lib/chrony
+    # Append trusted NTS servers
+    cat <<EOF >> /etc/chrony.conf
+server time.cloudflare.com iburst nts
+server nts.netnod.se iburst nts
+server ptbtime1.ptb.de iburst nts
+ntsdumpdir /var/lib/chrony
+EOF
 fi
-
 # --- 3. Privacy: Disable Coredumps ---
 # Prevents sensitive RAM data from being written to disk if an app crashes.
 mkdir -p /etc/systemd/coredump.conf.d
@@ -33,6 +40,8 @@ EOF
 
 # --- 4. Attack Surface: Module Blacklisting ---
 # Disables drivers for obsolete or rare hardware to shrink kernel attack surface.
+echo "Disable uncommon filesystem drivers to reduce kernel attack surface . ."
+
 cat <<EOF > /etc/modprobe.d/blacklist-unused.conf
 blacklist floppy
 blacklist parport
@@ -40,10 +49,29 @@ blacklist parport_pc
 blacklist firewire-core
 EOF
 
+# Disable uncommon filesystem drivers to reduce kernel attack surface
+cat <<EOF > /etc/modprobe.d/cis-filesystems.conf
+install cramfs /bin/true
+install freevxfs /bin/true
+install jffs2 /bin/true
+install hfs /bin/true
+install hfsplus /bin/true
+install udf /bin/true
+EOF
+
+# Disable obscure networking protocols
+cat <<EOF > /etc/modprobe.d/cis-network.conf
+install sctp /bin/true
+install dccp /bin/true
+install rds /bin/true
+install tipc /bin/true
+EOF
+
+
 # --- 5. Auth: Hardened Password Hashing ---
-# Uses 'yescrypt' with a cost factor of 7 (Exponentially harder to crack).
+# Uses 'yescrypt' with a cost factor of 6 (Exponentially harder to crack).
 sed -i 's/^ENCRYPT_METHOD.*/ENCRYPT_METHOD YESCRYPT/' /etc/login.defs
-echo "YESCRYPT_COST_FACTOR 7" >> /etc/login.defs
+echo "YESCRYPT_COST_FACTOR 6" >> /etc/login.defs
 
 # --- 6. Auth: 24h Brute Force Lockout ---
 # Locks account for 24 hours after 50 failed attempts.
@@ -61,14 +89,22 @@ net.ipv4.conf.all.accept_source_route = 0
 net.ipv6.conf.all.accept_source_route = 0
 EOF
 
-echo "Hardening complete!"
 
 # --- 7. Configure systemd-resolved for DNS-over-TLS using Cloudflare and Quad9
+echo "Configure systemd-resolved for DNS-over-TLS using Cloudflare and Quad9 . . "
 mkdir -p /etc/systemd/resolved.conf.d
 cat <<EOF > /etc/systemd/resolved.conf.d/privacy.conf
 [Resolve]
 DNS=1.1.1.1#cloudflare-dns.com 9.9.9.9#dns.quad9.net
 DNSOverTLS=yes
-DNSSEC=yes
+DNSSEC=allow-downgrade
 FallbackDNS=1.0.0.1#cloudflare-dns.com
 EOF
+
+
+
+
+
+
+
+echo "Hardening complete!"
