@@ -40,6 +40,7 @@ modules:
     repos:
       copr:
         - ublue-os/packages
+        - pop-os/cosmic-epoch
 
     install:
       packages:
@@ -48,6 +49,9 @@ modules:
         - powertop
         - podman-docker
         - fastfetch
+        - cosmic-files
+        - cosmic-edit
+        - cosmic-screenshot
 
     remove:
       packages:
@@ -78,6 +82,7 @@ modules:
           - io.github.DenysMb.Kontainer
           - com.github.rafostar.Clapper
           - org.flameshot.Flameshot
+          - org.gnome.Decibels
 
       - scope: user # Also add Flathub user repo, but no user packages
 
