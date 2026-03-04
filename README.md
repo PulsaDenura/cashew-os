@@ -31,9 +31,9 @@ Built on top on [universal-blue's](https://universal-blue.org/) and [Wayblue](ht
 
 Cashew-OS isn't built from scratch; it is a specialized "descendant" in the Fedora Atomic ecosystem. Understanding the base helps explain why this system is so stable:
 
-1.  **Cashew-OS:** Our final layer. We take the lean Wayblue base and inject aggressive power-management scripts and hardware-specific optimizations. alongside sensible default apps and settings that i felt were still missing.
+1.  **Cashew-OS:** Our final layer. We take the lean Wayblue base and inject aggressive power-management scripts and hardware-specific optimizations. alongside sensible default apps and settings that i felt were missing, this aims to be a complete starter package you dont need to worry about.
     
-2.  **Wayblue:** Wayblue is a community-maintained project built on top of the universal Blue framework. It specifically focuses on being focused on Wayland and Tiling Window Managers (like Sway, Hyprland, or Wayfire) instead of big Desktop Environments like GNOME or KDE to create a "pure" Wayland/Sway experience.
+2.  **Wayblue:** Wayblue is a community-maintained project built on top of the universal Blue framework. Being focused on Wayland and Tiling Window Managers (like Sway, Hyprland, or Wayfire) instead of big Desktop Environments like GNOME or KDE to create a "pure" Wayland.
     
 3.  **Universal Blue:** Universal Blue is community project and a manufacturing process that applies "Cloud Native" principles to the Linux desktop. they also maintain a set of base images built from Fedora Atomic Desktops and then enhanced with additional hardware support and fixes. A community layer that adds "batteries included" features like better hardware sensing, codecs, and container toolkits.
 

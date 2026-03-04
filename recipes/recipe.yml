@@ -25,6 +25,12 @@ modules:
   - type: containerfile
     snippets:
       - COPY --from=ghcr.io/ublue-os/brew:latest /system_files /
+      - RUN --mount=type=cache,dst=/var/cache \
+        --mount=type=cache,dst=/var/log \
+        --mount=type=tmpfs,dst=/tmp \
+        /usr/bin/systemctl preset brew-setup.service && \
+        /usr/bin/systemctl preset brew-update.timer && \
+        /usr/bin/systemctl preset brew-upgrade.timer
 
   # ##############################
   #             DNF
@@ -72,7 +78,6 @@ modules:
           - io.github.DenysMb.Kontainer
           - com.github.rafostar.Clapper
           - org.flameshot.Flameshot
-          - org.freedownloadmanager.Manager
 
       - scope: user # Also add Flathub user repo, but no user packages
 
@@ -83,7 +88,6 @@ modules:
     scripts:
       - optimizer.sh
       - autotiling.sh
-      # - homebrew.sh
   #
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
