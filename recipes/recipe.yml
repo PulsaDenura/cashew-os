@@ -92,6 +92,7 @@ modules:
   - type: script
     scripts:
       - optimizer.sh
+      - hardener.sh
       - autotiling.sh
   #
 
