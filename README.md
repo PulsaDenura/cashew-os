@@ -4,7 +4,7 @@
 
 * * *
 
-[![bluebuild build badge](https://github.com/pulsadenura/pulsa-denura-os/actions/workflows/build.yml/badge.svg)](https://github.com/pulsadenura/pulsa-denura-os/actions/workflows/build.yml)
+[![bluebuild build badge](https://github.com/pulsadenura/cashew-os/actions/workflows/build.yml/badge.svg)](https://github.com/pulsadenura/cashew-os/actions/workflows/build.yml)
 ---
 # Cashew-OS
 
@@ -94,7 +94,7 @@ To rebase an existing atomic Fedora installation to the latest build:
 
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/pulsadenura/pulsa-denura-os:latest
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/pulsadenura/cashew-os:latest
   ```
 - Reboot to complete the rebase:
   ```
@@ -102,7 +102,7 @@ To rebase an existing atomic Fedora installation to the latest build:
   ```
 - Then rebase to the signed image, like so:
   ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/pulsadenura/pulsa-denura-os:latest
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/pulsadenura/cashew-os:latest
   ```
 - Reboot again to complete the installation
   ```
@@ -116,5 +116,5 @@ The `latest` tag will automatically point to the latest build. That build will s
 These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign). You can verify the signature by downloading the `cosign.pub` file from this repo and running the following command:
 
 ```bash
-cosign verify --key cosign.pub ghcr.io/pulsadenura/pulsa-denura-os
+cosign verify --key cosign.pub ghcr.io/pulsadenura/cashew-os
 ```
