@@ -49,6 +49,9 @@ modules:
         - powertop
         - podman-docker
         - fastfetch
+        - mousepad
+        - xfce4-screenshooter
+        - xfce4-taskmanager
         # - cosmic-screenshot
 
     remove:
