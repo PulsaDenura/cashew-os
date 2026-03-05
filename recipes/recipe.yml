@@ -51,10 +51,9 @@ modules:
         - fastfetch
         - xfce4-taskmanager
         - baobab
-        - loupe
-        - gnome-calculator
+        # - loupe
         - flameshot
-
+        - qview
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
@@ -83,10 +82,10 @@ modules:
           - org.gnome.Papers
           - org.gnome.Logs
           - org.xfce.mousepad
-      # - org.kde.okular #document reader
-      # - org.kde.filelight #disk space analyzer
-      # - org.gnome.Loupe #image viewer
-      # - org.gnome.Calculator # calculator
+          # - org.kde.okular #document reader
+          # - org.kde.filelight #disk space analyzer
+          # - org.gnome.Loupe #image viewer
+          - org.gnome.Calculator # calculator
       # - org.gnome.baobab
       # - org.xfce.ristretto
       # - org.flameshot.Flameshot
