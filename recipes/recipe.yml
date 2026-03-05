@@ -22,6 +22,11 @@ modules:
       - source: dotfiles/config.jsonc
         destination: /etc/xdg/waybar/config.jsonc # Copy the  Waybar config
 
+  - type: files
+    files:
+      - source: dotfiles/foot.ini
+        destination: /etc/xdg/foot/foot.ini # Copy the foot config
+
   - type: containerfile
     snippets:
       - COPY --from=ghcr.io/ublue-os/brew:latest /system_files /
@@ -50,7 +55,7 @@ modules:
         - podman-docker
         - fastfetch
         - xfce4-taskmanager
-        - baobab
+        # - baobab
         # - loupe
         - flameshot
         - qview
@@ -82,11 +87,12 @@ modules:
           - org.gnome.Papers
           - org.gnome.Logs
           - org.xfce.mousepad
+          - org.gnome.Calculator
+          - org.gnome.baobab
           # - org.kde.okular #document reader
           # - org.kde.filelight #disk space analyzer
           # - org.gnome.Loupe #image viewer
-          - org.gnome.Calculator # calculator
-      # - org.gnome.baobab
+
       # - org.xfce.ristretto
       # - org.flameshot.Flameshot
 
