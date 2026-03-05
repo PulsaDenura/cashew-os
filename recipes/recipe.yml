@@ -49,10 +49,11 @@ modules:
         - powertop
         - podman-docker
         - fastfetch
-        - mousepad
-        - xfce4-screenshooter
         - xfce4-taskmanager
-        # - cosmic-screenshot
+        - baobab
+        - loupe
+        - gnome-calculator
+        - flameshot
 
     remove:
       packages:
@@ -72,18 +73,23 @@ modules:
         install: # system flatpaks we want all users to have and not remove
           - com.github.tchx84.Flatseal
           - net.waterfox.waterfox #web browser
-          - org.gnome.Loupe #image viewer
-          - org.gnome.Calculator # calculator
           - org.kde.kate #code editor
-          - org.kde.okular #document reader
-          - org.kde.filelight #disk space analyzer
           - com.sidevesh.Luminance # brightness control
           - io.github.kolunmi.Bazaar
           - io.podman_desktop.PodmanDesktop
           - io.github.DenysMb.Kontainer
           - com.github.rafostar.Clapper
-          - org.flameshot.Flameshot
+          # - org.flameshot.Flameshot
           - org.gnome.Decibels
+          - flathub org.gnome.Papers
+          - org.gnome.Logs
+          - org.xfce.mousepad
+      # - org.kde.okular #document reader
+      # - org.kde.filelight #disk space analyzer
+      # - org.gnome.Loupe #image viewer
+      # - org.gnome.Calculator # calculator
+      # -           # - org.gnome.baobab
+      # - org.xfce.ristretto
 
       - scope: user # Also add Flathub user repo, but no user packages
 

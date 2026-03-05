@@ -11,7 +11,7 @@ After=power-profiles-daemon.service
 [Service]
 Type=oneshot
 # Adding a short sleep ensures hardware is fully initialized
-ExecStartPre=/usr/bin/sleep 5
+ExecStartPre=/usr/bin/sleep 3
 ExecStart=/usr/bin/powertop --auto-tune
 RemainAfterExit=true
 

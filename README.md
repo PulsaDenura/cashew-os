@@ -73,6 +73,33 @@ We don't just hope the kernel saves power; we force it.
 - **Native Video Offloading**: Pre-configured VA-API and Intel-media-driver layers ensure that 4K video playback is handled by the GPU's fixed-function hardware, not the power-hungry CPU cores.
 
 * * *
+# Hardened Foundations
+
+**Cashew-OS integrates more secure defaults, based on [Tenable's audits](https://www.tenable.com/audits/CIS_Fedora_28_Family_Linux_Workstation_L1_v2.0.0)**
+
+    Network:
+
+        MAC Randomization: Your Wi-Fi and Ethernet hardware IDs are randomized on every connection, preventing physical tracking across networks.
+
+        DNS-over-TLS (DoT): All DNS queries are encrypted via Cloudflare and Quad9, hiding your browsing history from your ISP.
+
+        NTS (Network Time Security): Encrypted time synchronization prevents Man-in-the-Middle (MITM) attacks on your system clock using cloudflares NTP server.
+
+    Kernel & Memory Protection:
+
+        Attack Surface Reduction: Obsolete kernel modules (Floppy, Firewire, etc.) and obscure networking protocols (SCTP, DCCP) are blacklisted by default.
+
+        Coredump Disabling: Prevents sensitive RAM data from being written to disk if an application crashes.
+
+        Sysctl Hardening: Optimized kernel parameters to ignore malicious ICMP redirects and prevent IP spoofing via Reverse Path Filtering.
+
+    Advanced Authentication:
+
+        Brute-Force Protection: Accounts are locked for 24 hours after 50 failed login attempts.
+
+        Hardened Hashing: Passwords use the yescrypt algorithm with a high cost factor, making offline "cracking" exponentially more difficult.
+
+* * * 
 
 ## 🛠️ Tooling
 
