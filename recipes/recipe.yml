@@ -79,17 +79,17 @@ modules:
           - io.podman_desktop.PodmanDesktop
           - io.github.DenysMb.Kontainer
           - com.github.rafostar.Clapper
-          # - org.flameshot.Flameshot
           - org.gnome.Decibels
-          - flathub org.gnome.Papers
+          - org.gnome.Papers
           - org.gnome.Logs
           - org.xfce.mousepad
       # - org.kde.okular #document reader
       # - org.kde.filelight #disk space analyzer
       # - org.gnome.Loupe #image viewer
       # - org.gnome.Calculator # calculator
-      # -           # - org.gnome.baobab
+      # - org.gnome.baobab
       # - org.xfce.ristretto
+      # - org.flameshot.Flameshot
 
       - scope: user # Also add Flathub user repo, but no user packages
 
