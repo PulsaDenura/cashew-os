@@ -103,17 +103,34 @@ We don't just hope the kernel saves power; we force it.
 
 ## 🛠️ Tooling
 
-We chose tools that are "Wayland-Native," meaning they talk directly to the compositor without middle-man translation layers (XWayland), saving CPU cycles:
+We chose tools that are Wayland-Native and Qt6-optimized. These apps talk directly to the compositor without middle-man translation layers (XWayland), significantly saving CPU cycles and extending battery life:
 
--   **Terminal:** `foot` — An incredibly fast, lightweight terminal emulator with a "server-client" mode to minimize memory footprint.
-    
--   **Editor:** `Kate` — High-efficiency text editing without the bloat of Electron-based editors like VS Code.
-    
--   **Browser:** `Waterfox` — A speed-focused Firefox fork managed via Flatpak to keep the system core clean.
-    
--   **Utilities:** `Luminance` for brightness control, `Bazaar` for managing flatpaks, `Podman-Desktop` and `Kontainer` for managing containers and more . . 
-    
+  Terminal: `foot` — An incredibly fast, lightweight terminal emulator with a "server-client" mode to minimize memory footprint.
 
+  Editor: `Kate` — High-efficiency text editing and "Lite-IDE" features without the bloat of Electron-based editors.
+
+  Browser: `Waterfox` — A speed-focused Firefox fork managed via Flatpak to keep the system core clean.
+
+  File Manager: `PCManFM-Qt` — A lightning-fast, native Qt6 file manager that handles the "Invisible Desktop" logic.
+
+  Audio: `Qmmp` — The ultimate Winamp-style outlier for high-performance audio, utilizing a pure Qt6 interface.
+
+  Video: `mpv` — Best-in-class, minimalist media player with native Wayland support.
+
+  Image Viewer: `qView` — A minimalist, "no-UI" image viewer designed to be seen only when you need it.
+
+  System Monitor: qps — A visual process manager that provides deep system insights with a tiny footprint.
+
+---
+
+  **Utilities**:  
+  `Luminance` for hardware brightness control.
+
+  `Bazaar` for a clean Flatpak management interface.
+
+  `CopyQ` for advanced, scriptable clipboard management.
+
+  `Podman-Desktop` & `Kontainer` for specialized container orchestration.
 * * *
 ## Installation
 

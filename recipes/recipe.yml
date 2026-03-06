@@ -44,8 +44,6 @@ modules:
     repos:
       copr:
         - ublue-os/packages
-        - basilcrow/nm-tray
-        # - ryanabx/cosmic-epoch
 
     install:
       packages:
