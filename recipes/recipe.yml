@@ -20,7 +20,7 @@ modules:
 
       # --- Dotfiles
       - source: dotfiles/sway.conf
-        destination: /etc/sway/config.d/config
+        destination: /etc/sway/config.d/sway.conf
       - source: dotfiles/config.jsonc
         destination: /etc/xdg/waybar/config.jsonc
       - source: dotfiles/foot.ini
@@ -30,7 +30,7 @@ modules:
       - source: dotfiles/pcmanfm-qt/settings.conf
         destination: /etc/xdg/pcmanfm-qt/default/settings.conf
       - source: dotfiles/lxqt-qtxdg.conf
-        destination: /etc/xdg/lxqt-qtxdg.conf
+        destination: /etc/xdg/qtxdg.conf
 
   - type: containerfile
     snippets:
@@ -90,7 +90,6 @@ modules:
           - org.kde.filelight #disk space analyzer
           - org.gnome.Papers
           - org.gnome.Logs
-          # - org.gnome.baobab
           - com.sidevesh.Luminance # brightness control
           - io.github.kolunmi.Bazaar
           - io.podman_desktop.PodmanDesktop
@@ -99,6 +98,7 @@ modules:
 
           # - org.xfce.mousepad
           # - org.kde.okular #document reader
+          # - org.gnome.baobab
 
       - scope: user # Also add Flathub user repo, but no user packages
 

@@ -23,8 +23,7 @@ EOF
 systemctl enable powertop-autotune.service
 echo "Optimization complete."
 
-# Download autocpu-freq
-# mkdir /tmp/auto-cpufreq
-# cd /tmp/auto-cpufreq
-# git clone https://github.com/AdnanHodzic/auto-cpufreq.git
-# echo "downloaded autocpu-freq to home directory"
+
+
+rm -rf /etc/skel/.config/pcmanfm-qt
+echo "all done"
