@@ -19,11 +19,11 @@ modules:
         destination: /
 
       # --- Dotfiles
-      - source: dotfiles/sway.conf
+      - source: dotfiles/sway/sway.conf
         destination: /etc/sway/config.d/sway.conf
-      - source: dotfiles/config.jsonc
+      - source: dotfiles/waybar/config.jsonc
         destination: /etc/xdg/waybar/config.jsonc
-      - source: dotfiles/foot.ini
+      - source: dotfiles/foot/foot.ini
         destination: /etc/xdg/foot/foot.ini
       - source: dotfiles/lxqt.conf
         destination: /etc/xdg/lxqt/lxqt.conf
@@ -60,7 +60,6 @@ modules:
         - lxqt-archiver # Native archive tool (right-click integration)
         - screengrab # Native Wayland capture
         - qps # Pro task manager (replacing xfce4-taskmanager)
-        # - nm-tray #test if better than nm-applet
         - copyq
         - qmmp #test if better than decibels
 
@@ -85,7 +84,6 @@ modules:
           - net.waterfox.waterfox #web browser
           - org.kde.kate #code editor
           - org.kde.kcalc
-          - org.kde.filelight #disk space analyzer
           - org.gnome.Papers
           - org.gnome.Logs
           - com.sidevesh.Luminance # brightness control
@@ -93,10 +91,6 @@ modules:
           - io.podman_desktop.PodmanDesktop
           - io.github.DenysMb.Kontainer
           - com.github.tchx84.Flatseal
-
-          # - org.xfce.mousepad
-          # - org.kde.okular #document reader
-          # - org.gnome.baobab
 
       - scope: user # Also add Flathub user repo, but no user packages
 
