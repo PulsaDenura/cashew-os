@@ -47,7 +47,6 @@ modules:
 
     install:
       packages:
-        - qt6-qtwayland
         - powertop
         - git
         - micro
@@ -69,7 +68,7 @@ modules:
         - firefox-langpacks
         - xfce4-taskmanager
         - xfce4-panel
-        - thunar
+        - Thunar
         - qterminal
 
   # ##############################
