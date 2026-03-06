@@ -47,22 +47,21 @@ modules:
         - micro
         - podman-docker
         - fastfetch
+
         # --- The Native Stack ---
         - qview # Ultra-fast Qt6 image viewer
-        - mpv # Best-in-class HW video acceleration
-        - zathura # Minimalist keyboard-centric PDF core
-        - zathura-pdf-poppler # Essential PDF plugin for zathura
-        - pcmanfm-qt # Native Qt6 file manager (Wayland-first)
+        - mpv # Best-in-class
+        - pcmanfm-qt # Native Qt6 file manager
         - lxqt-archiver # Native archive tool (right-click integration)
-        - screengrab # Native Wayland capture (replaces flameshot)
+        - screengrab # Native Wayland capture
         - qps # Pro task manager (replacing xfce4-taskmanager)
         # - kvantum # Theme engine to keep Qt apps looking modern
+
     remove:
       packages:
         - firefox
         - firefox-langpacks
         - xfce4-taskmanager # Replaced by qps
-        # - flameshot # Replaced by screengrab (better Wayland support)
         - qterminal
 
   # ##############################
@@ -77,6 +76,7 @@ modules:
           - com.github.tchx84.Flatseal
           - net.waterfox.waterfox #web browser
           - org.kde.kate #code editor
+          - org.kde.kcalc
           - com.sidevesh.Luminance # brightness control
           - io.github.kolunmi.Bazaar
           - io.podman_desktop.PodmanDesktop
@@ -85,15 +85,11 @@ modules:
           - org.gnome.Papers
           - org.gnome.Logs
           - org.xfce.mousepad
-          - org.gnome.Calculator
-          # - org.gnome.baobab
+          - org.gnome.baobab
           # - org.kde.okular #document reader
           # - org.kde.filelight #disk space analyzer
-          # - org.gnome.Loupe #image viewer
-          # - com.github.rafostar.Clapper
-
-      # - org.xfce.ristretto
-      # - org.flameshot.Flameshot
+          # - org.gnome.Calculator
+          # - org.flameshot.Flameshot
 
       - scope: user # Also add Flathub user repo, but no user packages
 
