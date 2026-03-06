@@ -52,7 +52,6 @@ modules:
         - git
         - micro
         - fastfetch
-        # - podman-docker
 
         # --- The Native Stack ---
         - qview # Ultra-fast Qt6 image viewer
@@ -70,6 +69,7 @@ modules:
         - firefox
         - firefox-langpacks
         - xfce4-taskmanager
+        - xfce4-panel
         - thunar
         - qterminal
 
