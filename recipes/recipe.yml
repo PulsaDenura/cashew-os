@@ -14,16 +14,23 @@ image-version: 43
 modules:
   - type: files
     files:
+      # --- Existing files ---
       - source: system
         destination: /
+
+      # --- Dotfiles
+      - source: dotfiles/sway.conf
+        destination: /etc/sway/config.d/config
       - source: dotfiles/config.jsonc
         destination: /etc/xdg/waybar/config.jsonc
       - source: dotfiles/foot.ini
         destination: /etc/xdg/foot/foot.ini
       - source: dotfiles/lxqt.conf
-        destination: /etc/skel/.config/lxqt/lxqt.conf
+        destination: /etc/xdg/lxqt/lxqt.conf
       - source: dotfiles/pcmanfm-qt/settings.conf
-        destination: /etc/skel/.config/pcmanfm-qt/default/settings.conf
+        destination: /etc/xdg/pcmanfm-qt/default/settings.conf
+      - source: dotfiles/lxqt-qtxdg.conf
+        destination: /etc/xdg/lxqt-qtxdg.conf
 
   - type: containerfile
     snippets:
@@ -56,19 +63,16 @@ modules:
         - lxqt-archiver # Native archive tool (right-click integration)
         - screengrab # Native Wayland capture
         - qps # Pro task manager (replacing xfce4-taskmanager)
-        - qalculate-qt #test if better than kcalc
-        - nm-tray #test if better than nm-applet
+        # - nm-tray #test if better than nm-applet
         - copyq
-        - audacious # better than decibels?
-        - audacious-plugins-freeworld
         - qmmp #test if better than decibels
-        - kvantum # Theme engine to keep Qt apps looking modern
 
     remove:
       packages:
         - firefox
         - firefox-langpacks
-        - xfce4-taskmanager # Replaced by qps
+        - xfce4-taskmanager
+        - thunar
         - qterminal
 
   # ##############################
@@ -84,7 +88,6 @@ modules:
           - org.kde.kate #code editor
           - org.kde.kcalc
           - org.kde.filelight #disk space analyzer
-          - org.gnome.Decibels
           - org.gnome.Papers
           - org.gnome.Logs
           # - org.gnome.baobab
