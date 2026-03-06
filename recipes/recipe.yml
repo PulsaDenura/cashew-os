@@ -15,27 +15,19 @@ modules:
   - type: files
     files:
       - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
-
-  - type: files
-    files:
+        destination: /
       - source: dotfiles/config.jsonc
-        destination: /etc/xdg/waybar/config.jsonc # Copy the  Waybar config
-
-  - type: files
-    files:
+        destination: /etc/xdg/waybar/config.jsonc
       - source: dotfiles/foot.ini
-        destination: /etc/xdg/foot/foot.ini # Copy the foot config
+        destination: /etc/xdg/foot/foot.ini
+      - source: dotfiles/lxqt.conf
+        destination: ~/.config/lxqt/lxqt.conf
+      - source: dotfiles/pcmanfm-qt/settings.conf
+        destination: ~/.config/pcmanfm-qt/default/settings.conf
 
   - type: containerfile
     snippets:
       - COPY --from=ghcr.io/ublue-os/brew:latest /system_files /
-      # - RUN --mount=type=cache,dst=/var/cache \
-      #   --mount=type=cache,dst=/var/log \
-      #   --mount=type=tmpfs,dst=/tmp \
-      #   /usr/bin/systemctl preset brew-setup.service && \
-      #   /usr/bin/systemctl preset brew-update.timer && \
-      #   /usr/bin/systemctl preset brew-upgrade.timer
 
   # ##############################
   #             DNF
@@ -49,22 +41,29 @@ modules:
 
     install:
       packages:
+        - qt6-qtwayland
+        - powertop
         - git
         - micro
-        - powertop
         - podman-docker
         - fastfetch
-        - xfce4-taskmanager
-        # - baobab
-        # - loupe
-        - flameshot
-        - qview
+        # --- The Native Stack ---
+        - qview # Ultra-fast Qt6 image viewer
+        - mpv # Best-in-class HW video acceleration
+        - zathura # Minimalist keyboard-centric PDF core
+        - zathura-pdf-poppler # Essential PDF plugin for zathura
+        - pcmanfm-qt # Native Qt6 file manager (Wayland-first)
+        - lxqt-archiver # Native archive tool (right-click integration)
+        - screengrab # Native Wayland capture (replaces flameshot)
+        - qps # Pro task manager (replacing xfce4-taskmanager)
+        # - kvantum # Theme engine to keep Qt apps looking modern
     remove:
       packages:
-        # example: removing firefox (in favor of the flatpak)
-        # "firefox" is the main package, "firefox-langpacks" is a dependency
         - firefox
-        - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+        - firefox-langpacks
+        - xfce4-taskmanager # Replaced by qps
+        # - flameshot # Replaced by screengrab (better Wayland support)
+        - qterminal
 
   # ##############################
   #        FLATPACKS
@@ -82,16 +81,16 @@ modules:
           - io.github.kolunmi.Bazaar
           - io.podman_desktop.PodmanDesktop
           - io.github.DenysMb.Kontainer
-          - com.github.rafostar.Clapper
           - org.gnome.Decibels
           - org.gnome.Papers
           - org.gnome.Logs
           - org.xfce.mousepad
           - org.gnome.Calculator
-          - org.gnome.baobab
+          # - org.gnome.baobab
           # - org.kde.okular #document reader
           # - org.kde.filelight #disk space analyzer
           # - org.gnome.Loupe #image viewer
+          # - com.github.rafostar.Clapper
 
       # - org.xfce.ristretto
       # - org.flameshot.Flameshot
