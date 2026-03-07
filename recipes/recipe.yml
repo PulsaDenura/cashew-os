@@ -19,6 +19,9 @@ modules:
         destination: /
 
       # --- Dotfiles
+      - source: dotfiles/wallpaper.jxl
+        destination: /usr/share/backgrounds/cashew-os/wallpaper.jxl  
+
       - source: dotfiles/sway/sway.conf
         destination: /etc/sway/config.d/sway.conf
       - source: dotfiles/waybar/config.jsonc
@@ -33,6 +36,10 @@ modules:
         destination: /etc/xdg/qtxdg.conf
       - source: dotfiles/portals.conf
         destination: /etc/xdg/xdg-desktop-portal/sway-portals.conf
+      - source: dotfiles/qt6/qt6.conf
+        destination: /etc/environment.d/qt6.conf
+      - source: dotfiles/qt6/qt6ct.conf
+        destination: /etc/xdg/qt6ct/qt6ct.conf
 
   - type: containerfile
     snippets:
@@ -46,6 +53,7 @@ modules:
     repos:
       copr:
         - ublue-os/packages
+        - atim/paper-icon-theme
 
     install:
       packages:
@@ -54,7 +62,9 @@ modules:
         - micro
         - fastfetch
         - power-profiles-daemon
-        - xdg-desktop-portal-lxqt  
+        - xdg-desktop-portal-lxqt
+        - paper-icon-theme
+        - qt6ct
 
 
         # --- The Native Stack ---
@@ -77,9 +87,7 @@ modules:
         - tuned-ppd
         - xdg-desktop-portal-gtk
         - blueman
-        - blueman-applet
-        - blueman-tray
-        - blueman-manager
+
 
   # ##############################
   #        FLATPACKS

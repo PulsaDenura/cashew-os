@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="200" src="logo.png" alt="Cashew-OS Logo">
+  <img width="350" src="logo.png" alt="Cashew-OS Logo">
 </p>
 
 * * *
@@ -101,6 +101,16 @@ We don't just hope the kernel saves power; we force it.
 
 * * * 
 
+## Optimizations
+Service Decoupling: Purged tuned and tuned-ppd in favor of power-profiles-daemon (PPD). This eliminated ~60MB of Python-based background overhead.
+
+The "Portal" Swap: Replaced xdg-desktop-portal-gtk with xdg-desktop-portal-lxqt. This ensures that file-picker dialogs and system settings use the existing Qt6 shared libraries instead of loading the massive GNOME/GTK runtime into memory.
+
+Bluetooth management: Migrated the Bluetooth stack from blueman (persistent Python daemon) to Bluejay (Flatpak). This isolates the Bluetooth UI from the system core while providing a faster, more modern interface.
+
+This allows us to sit at around 600mb of ram usage on boot.
+* * * 
+
 ## 🛠️ Tooling
 
 We chose tools that are Wayland-Native and Qt6-optimized. These apps talk directly to the compositor without middle-man translation layers (XWayland), significantly saving CPU cycles and extending battery life:
@@ -119,7 +129,7 @@ We chose tools that are Wayland-Native and Qt6-optimized. These apps talk direct
 
   Image Viewer: `qView` — A minimalist, "no-UI" image viewer designed to be seen only when you need it.
 
-  System Monitor: qps — A visual process manager that provides deep system insights with a tiny footprint.
+  System Monitor: `qps` — A visual process manager that provides deep system insights with a tiny footprint.
 
 ---
 
@@ -129,9 +139,13 @@ We chose tools that are Wayland-Native and Qt6-optimized. These apps talk direct
   `Bazaar` for a clean Flatpak management interface.
 
   `CopyQ` for advanced, scriptable clipboard management.
+  
+  `screengrab` for taking screenshots.
 
-  `Podman-Desktop` & `Kontainer` for specialized container orchestration.
+  `Podman-Desktop` & `Kontainer` for visual container management.
 * * *
+
+
 ## Installation
 
 To rebase an existing atomic Fedora installation to the latest build:

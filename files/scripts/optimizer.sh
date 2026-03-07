@@ -6,7 +6,7 @@ echo "Setting up Powertop Auto-tune..."
 cat <<EOF > /usr/lib/systemd/system/powertop-autotune.service
 [Unit]
 Description=Powertop autotune
-After=power-profiles-daemon.service
+# After=power-profiles-daemon.service
 
 [Service]
 Type=oneshot
