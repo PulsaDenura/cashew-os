@@ -53,6 +53,7 @@ modules:
     repos:
       copr:
         - ublue-os/packages
+        - eddsalkield/swaylock-effects
 
     install:
       packages:
@@ -64,6 +65,7 @@ modules:
         - xdg-desktop-portal-lxqt
         - paper-icon-theme
         - qt6ct
+        - swaylock-effects # Swaylock with blur, color filters, and more
 
 
         # --- The Native Stack ---
