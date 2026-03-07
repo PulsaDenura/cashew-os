@@ -53,7 +53,6 @@ modules:
     repos:
       copr:
         - ublue-os/packages
-        - eddsalkield/swaylock-effects
 
     install:
       packages:
@@ -63,10 +62,7 @@ modules:
         - fastfetch
         - power-profiles-daemon
         - xdg-desktop-portal-lxqt
-        - paper-icon-theme
         - qt6ct
-        - swaylock-effects # Swaylock with blur, color filters, and more
-
 
         # --- The Native Stack ---
         - qview # Ultra-fast Qt6 image viewer
@@ -76,7 +72,8 @@ modules:
         - screengrab # Native Wayland capture
         - qps # Pro task manager (replacing xfce4-taskmanager)
         - copyq
-        - qmmp 
+        - qmmp
+        - nlock
 
     remove:
       packages:
