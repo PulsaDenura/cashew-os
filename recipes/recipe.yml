@@ -31,6 +31,8 @@ modules:
         destination: /etc/xdg/pcmanfm-qt/default/settings.conf
       - source: dotfiles/lxqt-qtxdg.conf
         destination: /etc/xdg/qtxdg.conf
+      - source: dotfiles/portals.conf
+        destination: /etc/xdg/xdg-desktop-portal/sway-portals.conf
 
   - type: containerfile
     snippets:
@@ -52,7 +54,8 @@ modules:
         - micro
         - fastfetch
         - power-profiles-daemon
-        - bluejay # Bluetooth manager
+        - xdg-desktop-portal-lxqt  
+
 
         # --- The Native Stack ---
         - qview # Ultra-fast Qt6 image viewer
@@ -68,11 +71,15 @@ modules:
       packages:
         - firefox
         - firefox-langpacks
-        - xfce4-taskmanager
         - xfce4-panel
         - Thunar
         - tuned
         - tuned-ppd
+        - xdg-desktop-portal-gtk
+        - blueman
+        - blueman-applet
+        - blueman-tray
+        - blueman-manager
 
   # ##############################
   #        FLATPACKS
@@ -83,6 +90,7 @@ modules:
         scope: system
         # If no repo information is specified, Flathub will be used by default
         install: # system flatpaks we want all users to have and not remove
+          - io.github.ebonjaeger.bluejay #bluetooth manager
           - net.waterfox.waterfox #web browser
           - org.kde.kate #code editor
           - org.kde.kcalc
