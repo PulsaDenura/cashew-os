@@ -51,6 +51,8 @@ modules:
         - git
         - micro
         - fastfetch
+        - power-profiles-daemon
+        - bluejay # Bluetooth manager
 
         # --- The Native Stack ---
         - qview # Ultra-fast Qt6 image viewer
@@ -60,7 +62,7 @@ modules:
         - screengrab # Native Wayland capture
         - qps # Pro task manager (replacing xfce4-taskmanager)
         - copyq
-        - qmmp #test if better than decibels
+        - qmmp 
 
     remove:
       packages:
@@ -69,7 +71,8 @@ modules:
         - xfce4-taskmanager
         - xfce4-panel
         - Thunar
-        - qterminal
+        - tuned
+        - tuned-ppd
 
   # ##############################
   #        FLATPACKS
