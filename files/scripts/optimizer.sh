@@ -23,7 +23,4 @@ EOF
 systemctl enable powertop-autotune.service
 echo "Optimization complete."
 
-
-
-rm -rf /etc/skel/.config/pcmanfm-qt
 echo "all done"

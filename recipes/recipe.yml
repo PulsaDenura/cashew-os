@@ -28,6 +28,9 @@ modules:
         destination: /etc/xdg/waybar/config.jsonc
       - source: dotfiles/foot/foot.ini
         destination: /etc/xdg/foot/foot.ini
+      - source: dotfiles/swaylock/swaylock.conf
+        destination: /etc/xdg/swaylock/config
+
       - source: dotfiles/lxqt.conf
         destination: /etc/xdg/lxqt/lxqt.conf
       - source: dotfiles/pcmanfm-qt/settings.conf
