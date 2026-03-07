@@ -53,8 +53,7 @@ modules:
     repos:
       copr:
         - ublue-os/packages
-        - atim/paper-icon-theme
-
+        
     install:
       packages:
         - powertop
