@@ -20,7 +20,7 @@ modules:
 
       # --- Dotfiles
       - source: dotfiles/wallpaper.jxl
-        destination: /usr/share/backgrounds/cashew-os/wallpaper.jxl  
+        destination: /usr/share/backgrounds/default.jxl  
 
       - source: dotfiles/sway/sway.conf
         destination: /etc/sway/config.d/sway.conf
@@ -53,7 +53,7 @@ modules:
     repos:
       copr:
         - ublue-os/packages
-        
+
     install:
       packages:
         - powertop
@@ -99,15 +99,17 @@ modules:
         install: # system flatpaks we want all users to have and not remove
           - io.github.ebonjaeger.bluejay #bluetooth manager
           - net.waterfox.waterfox #web browser
+          - org.kde.okular
           - org.kde.kate #code editor
           - org.kde.kcalc
-          - org.gnome.Papers
-          - org.gnome.Logs
-          - com.sidevesh.Luminance # brightness control
           - io.github.kolunmi.Bazaar
-          - io.podman_desktop.PodmanDesktop
           - io.github.DenysMb.Kontainer
           - com.github.tchx84.Flatseal
+
+          # - io.podman_desktop.PodmanDesktop
+          # - org.gnome.Logs
+          # - org.gnome.Papers
+          # - com.sidevesh.Luminance # brightness control
 
       - scope: user # Also add Flathub user repo, but no user packages
 
