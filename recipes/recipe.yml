@@ -73,7 +73,7 @@ modules:
         - qps # Pro task manager (replacing xfce4-taskmanager)
         - copyq
         - qmmp
-        - nlock
+        # - nlock
 
     remove:
       packages:
