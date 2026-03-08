@@ -29,7 +29,7 @@ modules:
       - source: dotfiles/foot/foot.ini
         destination: /etc/xdg/foot/foot.ini
       - source: dotfiles/swaylock/swaylock.conf
-        destination: /etc/xdg/swaylock/config
+        destination: /etc/swaylock/config
 
       - source: dotfiles/lxqt.conf
         destination: /etc/xdg/lxqt/lxqt.conf
@@ -44,9 +44,10 @@ modules:
       - source: dotfiles/qt6/qt6ct.conf
         destination: /etc/xdg/qt6ct/qt6ct.conf
 
-  - type: containerfile
-    snippets:
-      - COPY --from=ghcr.io/ublue-os/brew:latest /system_files /
+# homebrew installation
+  # - type: containerfile
+  #   snippets:
+  #     - COPY --from=ghcr.io/ublue-os/brew:latest /system_files /
 
   # ##############################
   #             DNF
@@ -80,13 +81,13 @@ modules:
 
     remove:
       packages:
-        - firefox
-        - firefox-langpacks
+        # - firefox
+        # - firefox-langpacks
         - xfce4-panel
         - Thunar
         - tuned
         - tuned-ppd
-        - xdg-desktop-portal-gtk
+        # - xdg-desktop-portal-gtk
         - blueman
 
 
@@ -100,7 +101,7 @@ modules:
         # If no repo information is specified, Flathub will be used by default
         install: # system flatpaks we want all users to have and not remove
           - io.github.ebonjaeger.bluejay #bluetooth manager
-          - net.waterfox.waterfox #web browser
+          # - net.waterfox.waterfox #web browser
           - org.kde.okular
           - org.kde.kate #code editor
           - org.kde.kcalc
