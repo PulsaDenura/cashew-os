@@ -21,6 +21,8 @@ modules:
       # --- Dotfiles
       - source: dotfiles/wallpaper.jxl
         destination: /usr/share/backgrounds/default.jxl  
+      - source: dotfiles/lockscreen.jxl
+        destination: /usr/share/backgrounds/lockscreen.jxl  
 
       - source: dotfiles/sway/sway.conf
         destination: /etc/sway/config.d/sway.conf
