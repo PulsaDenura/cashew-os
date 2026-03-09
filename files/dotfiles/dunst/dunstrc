@@ -1,0 +1,159 @@
+# See dunst(5) for all configuration options
+
+[global]
+    ### Display ###
+
+    monitor = 0
+    follow = keyboard
+
+    ### Geometry ###
+
+    # Slightly wider, dynamic height for multi-line
+    width = (250, 420)
+    height = (0, 260)
+
+    origin = top-right
+    offset = (20, 40)
+
+    scale = 0
+    notification_limit = 8
+
+    ### Progress bar ###
+
+    progress_bar = true
+    progress_bar_height = 6
+    progress_bar_frame_width = 0
+    progress_bar_min_width = 200
+    progress_bar_max_width = 420
+    progress_bar_corner_radius = 4
+    progress_bar_corners = all
+
+    icon_corner_radius = 4
+    icon_corners = all
+
+    indicate_hidden = yes
+
+    # Slight transparency for a modern look (needs compositor)
+    transparency = 8
+
+    # Use gaps between notifications instead of hard separators
+    separator_height = 0
+    padding = 14
+    horizontal_padding = 14
+    text_icon_padding = 10
+
+    frame_width = 2
+    frame_color = "#4a6775"
+
+    gap_size = 8
+    separator_color = frame
+
+    sort = yes
+
+    ### Text ###
+
+    # Use a nicer monospace font; change if you don’t have this installed
+    font = JetBrains Mono 11
+
+    line_height = 0
+    markup = full
+    format = "<b>%s</b>\\n%b"
+
+    alignment = left
+    vertical_alignment = center
+
+    show_age_threshold = 90
+    ellipsize = end
+    ignore_newline = no
+
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+
+    ### Icons ###
+
+    enable_recursive_icon_lookup = true
+    icon_theme = "Paper"
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 64
+
+    ### History ###
+
+    sticky_history = yes
+    history_length = 25
+
+    ### Misc/Advanced ###
+
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+
+    title = Dunst
+    class = Dunst
+
+    # Modern rounded window corners
+    corner_radius = 2
+    corners = all
+
+    ignore_dbusclose = false
+
+    ### Wayland ###
+
+    # layer = top
+    force_xwayland = false
+
+    ### Legacy ###
+
+    force_xinerama = false
+
+    ### mouse
+
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+
+[experimental]
+    per_monitor_dpi = false
+    pause_on_mouse_over = false
+
+
+# Dark, muted blue/green themed colors
+
+[urgency_low]
+    background = "#14191f"
+    foreground = "#9da7b3"
+    frame_color = "#2e3d4a"
+    timeout = 5
+    default_icon = dialog-information
+
+[urgency_normal]
+    background = "#151f26"
+    foreground = "#d1e6ef"
+    frame_color = "#4a6775"
+    timeout = 8
+    override_pause_level = 30
+    default_icon = dialog-information
+
+[urgency_critical]
+    background = "#1b252c"
+    foreground = "#ffe9e9"
+    frame_color = "#ff6b6b"
+    timeout = 0
+    override_pause_level = 60
+    default_icon = dialog-warning
+
+# Example rules (still commented out, adjust if needed)
+
+# [fullscreen_show_critical]
+#     msg_urgency = critical
+#     fullscreen = show
+
+# [ignore]
+#     summary = "foobar"
+#     skip_display = true
+
+# [history-ignore]
+#     summary = "foobar"
+#     history_ignore = yes
