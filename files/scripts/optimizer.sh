@@ -6,13 +6,14 @@ echo "Setting up Powertop Auto-tune..."
 cat <<EOF > /usr/lib/systemd/system/powertop-autotune.service
 [Unit]
 Description=Powertop autotune
-# After=power-profiles-daemon.service
+After=multi-user.target
 
 [Service]
 Type=oneshot
 # Adding a short sleep ensures hardware is fully initialized
-ExecStartPre=/usr/bin/sleep 3
+ExecStartPre=/usr/bin/sleep 2
 ExecStart=/usr/bin/powertop --auto-tune
+ExecStartPost=/bin/sh -c 'for f in $(find /sys/bus/usb/drivers/usbhid -regex ".*/[0-9:.-]+" -printf "%f\n" | cut -d ":" -f 1 | sort -u); do echo on > "/sys/bus/usb/devices/$f/power/control"; done'
 RemainAfterExit=true
 
 [Install]
