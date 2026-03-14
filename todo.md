@@ -1,0 +1,3 @@
+- check mako as lighter a replacement for dunst
+- check falkon as a lighter replacement for firefox
+- check palemoon as a lighter replacement for firefox
