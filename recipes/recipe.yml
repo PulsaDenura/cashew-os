@@ -6,8 +6,8 @@ name: cashew-os
 description: Durable Laptop Appliance. A specialized, immutable Fedora image for high-performance minimalism. Keyboard based.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/wayblueorg/sway
-image-version: 43
+base-image: ghcr.io/wayblueorg/sway-nvidia
+image-version: latest
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -81,16 +81,13 @@ modules:
         - qps # Pro task manager (replacing xfce4-taskmanager)
         - copyq
         - qmmp
-        # - nlock
 
     remove:
       packages:
-        # - firefox
-        # - firefox-langpacks
         - xfce4-panel
         - Thunar
-        - tuned
-        - tuned-ppd
+        # - tuned
+        # - tuned-ppd
         # - xdg-desktop-portal-gtk
         - blueman
 
@@ -105,7 +102,6 @@ modules:
         # If no repo information is specified, Flathub will be used by default
         install: # system flatpaks we want all users to have and not remove
           - io.github.ebonjaeger.bluejay #bluetooth manager
-          # - net.waterfox.waterfox #web browser
           - org.kde.okular
           - org.kde.kate #code editor
           - org.kde.kcalc

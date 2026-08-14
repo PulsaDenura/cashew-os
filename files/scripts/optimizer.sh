@@ -51,7 +51,7 @@ EOF
 
 # 5. Enable Services and mask potential conflicts
 # We mask TuneD to ensure it never starts and eats RAM
-# systemctl mask tuned.service
+systemctl mask tuned.service
 systemctl enable powertop-autotune.service
 systemctl enable thermald.service
 systemctl enable power-profiles-daemon.service

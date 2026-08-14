@@ -13,7 +13,7 @@ Built on top on [universal-blue's](https://universal-blue.org/) and [Wayblue](ht
 
 # Core Principles
 
-  - Immutability by Default: Powered by bootc and ostree. Your OS is a read-only appliance that never "drifts" or breaks over time.
+  - Immutability by Default: Powered by bootc and ostree. Your base OS is a read-only appliance that never "drifts" or breaks over time.
 
   - Wayland-First Architecture: No X11 legacy bloat. Every pixel is rendered natively for maximum GPU efficiency.
 
@@ -70,7 +70,6 @@ We don't just hope the kernel saves power; we force it.
     
 - **Integrated Microcode Patches**: Automatically includes microcode_ctl to ensure your Intel CPU is running the latest stability and power efficiency fixes from the factory.
 
-- **Native Video Offloading**: Pre-configured VA-API and Intel-media-driver layers ensure that 4K video playback is handled by the GPU's fixed-function hardware, not the power-hungry CPU cores.
 
 * * *
 # Hardened Foundations
@@ -104,8 +103,6 @@ We don't just hope the kernel saves power; we force it.
 ## Optimizations
 Service Decoupling: Purged tuned and tuned-ppd in favor of power-profiles-daemon (PPD). This eliminated ~60MB of Python-based background overhead.
 
-The "Portal" Swap: Replaced xdg-desktop-portal-gtk with xdg-desktop-portal-lxqt. This ensures that file-picker dialogs and system settings use the existing Qt6 shared libraries instead of loading the massive GNOME/GTK runtime into memory.
-
 Bluetooth management: Migrated the Bluetooth stack from blueman (persistent Python daemon) to Bluejay (Flatpak). This isolates the Bluetooth UI from the system core while providing a faster, more modern interface.
 
 This allows us to sit at around 600mb of ram usage on boot.
@@ -119,9 +116,7 @@ We chose tools that are Wayland-Native and Qt6-optimized. These apps talk direct
 
   Editor: `Kate` — High-efficiency text editing and "Lite-IDE" features without the bloat of Electron-based editors.
 
-  Browser: `Waterfox` — A speed-focused Firefox fork managed via Flatpak to keep the system core clean.
-
-  File Manager: `PCManFM-Qt` — A lightning-fast, native Qt6 file manager that handles the "Invisible Desktop" logic.
+  File Manager: `PCManFM-Qt` — A lightning-fast, native Qt6 file manager.
 
   Audio: `Qmmp` — The ultimate Winamp-style outlier for high-performance audio, utilizing a pure Qt6 interface.
 
@@ -134,8 +129,6 @@ We chose tools that are Wayland-Native and Qt6-optimized. These apps talk direct
 ---
 
   **Utilities**:  
-  `Luminance` for hardware brightness control.
-
   `Bazaar` for a clean Flatpak management interface.
 
   `CopyQ` for advanced, scriptable clipboard management.
